@@ -4,11 +4,16 @@ namespace App\Models;
 
 class AccessLog
 {
-    private $_parsePattern = null;
-    private $_allRecords = [];
-    private $_urls = [];
-    private $_views = [];
-    private $_traffics = [];
+    private $_parsePattern;
+
+    private $_allRecords;
+
+    private $_uniqueUrls = [];
+
+    private $_trafficVolume;
+
+    private $_crawlers;
+
     private $_statusCodes = [];
 
     public function __construct(array $allRecords, $parsePattern)
@@ -17,11 +22,32 @@ class AccessLog
         $this->_parsePattern = $parsePattern;
     }
 
-    public function parsePattern() {
+    public function parsePattern()
+    {
         return $this->_parsePattern;
     }
 
-    public function allRecords() {
+    public function allRecords()
+    {
         return $this->_allRecords;
     }
+
+    public function trafficVolume()
+    {
+        return $this->_trafficVolume;
+    }
+
+    public function uniqueUrls()
+    {
+        return $this->_uniqueUrls;
+    }
+
+    public function setTrafficVolume($trafficVolume)
+    {
+        $this->_trafficVolume = $trafficVolume;
+    }
+//    public function increaseTrafficVolume($value)
+//    {
+//        $this->_trafficVolume += $value;
+//    }
 }
