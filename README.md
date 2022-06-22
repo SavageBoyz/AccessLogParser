@@ -1,10 +1,10 @@
 # AccessLogParser
 
-Версия PHP: 8.0
+Версия PHP: 8.0 
+
 Команда для запуска скрипта: php main.php
-
 # Output
-
+```
 string(271) "{
     "views": 16,
     "urls": 5,
@@ -22,3 +22,4 @@ string(271) "{
         "301": 2
     }
 }"
+```
