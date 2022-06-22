@@ -4,24 +4,24 @@ namespace App\Entity;
 
 class AccessLogFullInfo
 {
-    private $_views;
+    private int $_views = 0;
 
-    private $_uniqueUrls = [];
+    private array $_uniqueUrls = [];
 
-    private $_trafficVolume;
+    private int $_trafficVolume = 0;
 
-    private $_crawlers;
+    private array $_crawlers = [];
 
-    private $_statusCodes = [];
+    private array $_statusCodes = [];
 
     public function views()
     {
         return $this->_views;
     }
 
-    public function setViews($views)
+    public function increaseViews()
     {
-        $this->_views = $views;
+        $this->_views++;
         return $this;
     }
 
@@ -41,20 +41,39 @@ class AccessLogFullInfo
         return $this->_uniqueUrls;
     }
 
-    public function addUniqueUrls($url)
+    public function addUniqueUrl($url)
     {
         $this->_uniqueUrls[] = $url;
         return $this;
     }
 
-
-    public function getParsePattern()
+    public function crawlers()
     {
-        return self::PARSE_PATTERN;
+        return $this->_crawlers;
     }
 
-    public function getValidMatchCount()
+    public function addCrawler($crawler, $count = 0) {
+        $this->_crawlers[$crawler] = $count;
+    }
+
+    public function increaseCrawlerCount($crawler)
     {
-        return self::VALID_MATCH_COUNT;
+        $this->_crawlers[$crawler]++;
+    }
+
+    public function statusCodes()
+    {
+        return $this->_statusCodes;
+
+    }
+
+    public function addStatusCode($statusCode, $count = 0)
+    {
+        $this->_statusCodes[$statusCode] = $count;
+    }
+
+    public function increaseStatusCodeCount($statusCode)
+    {
+        $this->_statusCodes[$statusCode]++;
     }
 }
