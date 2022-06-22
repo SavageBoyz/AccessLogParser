@@ -2,122 +2,244 @@
 
 namespace App\Entity;
 
+/**
+ * Класс-сущность записи access log
+ * Class AccessLogRecord
+ * @package App\Entity
+ */
 class AccessLogRecord
 {
-    private $_ip;
+    /**
+     * IP
+     * @var string
+     */
+    private string $_ip;
 
-    private $_date;
+    /**
+     * Дата обращения
+     * @var string
+     */
+    private string $_date;
 
-    private $_type;
+    /**
+     * Тип запроса
+     * @var string
+     */
+    private string $_type;
 
-    private $_url;
+    /**
+     * URL запроса
+     * @var string
+     */
+    private string $_url;
 
-    private $_version;
+    /**
+     * HTTP версия
+     * @var string
+     */
+    private string $_version;
 
-    private $_code;
+    /**
+     * Код ответа
+     * @var string
+     */
+    private string $_code;
 
-    private $_traffic;
+    /**
+     * Объем трафика
+     * @var int
+     */
+    private int $_traffic;
 
-    private $_sourceUrl;
+    /**
+     * Источник запроса
+     * @var string
+     */
+    private string $_sourceUrl;
 
-    private $_userAgent;
+    /**
+     * Данные о user agent
+     * @var string
+     */
+    private string $_userAgent;
 
-    public function ip()
+    /**
+     * Getter поля ip
+     * @return string
+     */
+    public function ip(): string
     {
         return $this->_ip;
     }
 
-    public function setIp($ip)
+    /**
+     * Setter поля ip
+     * @param string $ip - подставляемое значение
+     * @return $this
+     */
+    public function setIp(string $ip): AccessLogRecord
     {
         $this->_ip = $ip;
 
         return $this;
     }
 
-    public function date()
+    /**
+     * Getter поля date
+     * @return string
+     */
+    public function date(): string
     {
         return $this->_date;
     }
 
-    public function setDate($date)
+    /**
+     * Setter поля date
+     * @param string $date - подставляемое значение
+     * @return $this
+     */
+    public function setDate(string $date): AccessLogRecord
     {
         $this->_date = $date;
 
         return $this;
     }
 
-    public function type()
+    /**
+     * Getter поля type
+     * @return string
+     */
+    public function type(): string
     {
         return $this->_type;
     }
 
-    public function setType($type)
+    /**
+     * Setter поля type
+     * @param string $type - подставляемое значение
+     * @return $this
+     */
+    public function setType(string $type): AccessLogRecord
     {
         $this->_type = $type;
         return $this;
     }
 
-    public function url()
+    /**
+     * Getter поля url
+     * @return string
+     */
+    public function url(): string
     {
         return $this->_url;
     }
 
-    public function setUrl($url)
+    /**
+     * Setter поля url
+     * @param string $url - подставляемое значение
+     * @return $this
+     */
+    public function setUrl(string $url): AccessLogRecord
     {
         $this->_url = $url;
         return $this;
     }
 
-    public function version()
+    /**
+     * Getter поля version
+     * @return string
+     */
+    public function version(): string
     {
         return $this->_version;
     }
 
-    public function setVersion($version)
+    /**
+     * Setter поля version
+     * @param string $version - подставляемое значение
+     * @return $this
+     */
+    public function setVersion(string $version): AccessLogRecord
     {
         $this->_version = $version;
         return $this;
     }
 
-    public function code()
+    /**
+     * Getter поля code
+     * @return string
+     */
+    public function code(): string
     {
         return $this->_code;
     }
 
-    public function setCode($code)
+    /**
+     * Setter поля code
+     * @param string $code - подставляемое значение
+     * @return $this
+     */
+    public function setCode(string $code): AccessLogRecord
     {
         $this->_code = $code;
         return $this;
     }
 
-    public function traffic()
+    /**
+     * Getter поля traffic
+     * @return string
+     */
+    public function traffic(): string
     {
         return $this->_traffic;
     }
 
-    public function setTraffic($traffic)
+    /**
+     * Setter поля traffic
+     * @param int $traffic - подставляемое значение
+     * @return $this
+     */
+    public function setTraffic(int $traffic): AccessLogRecord
     {
         $this->_traffic = $traffic;
         return $this;
     }
 
-    public function sourceUrl()
+    /**
+     * Getter поля sourceUrl
+     * @return string
+     */
+    public function sourceUrl(): string
     {
         return $this->_sourceUrl;
     }
 
-    public function setSourceUrl($sourceUrl)
+    /**
+     * Setter поля sourceUrl
+     * @param string $sourceUrl - подставляемое значение
+     * @return $this
+     */
+    public function setSourceUrl(string $sourceUrl): AccessLogRecord
     {
         $this->_sourceUrl = $sourceUrl;
         return $this;
     }
 
-    public function userAgent()
+    /**
+     * Getter поля userAgent
+     * @return string
+     */
+    public function userAgent(): string
     {
         return $this->_userAgent;
     }
 
-    public function setUserAgent($userAgent)
+    /**
+     * Setter поля userAgent
+     * @param string $userAgent - подставляемое значение
+     * @return $this
+     */
+    public function setUserAgent(string $userAgent): AccessLogRecord
     {
         $this->_userAgent = $userAgent;
         return $this;

@@ -2,78 +2,164 @@
 
 namespace App\Entity;
 
+/**
+ * Класс-сущность данных о access log
+ * Class AccessLogFullInfo
+ * @package App\Entity
+ */
 class AccessLogFullInfo
 {
+    /**
+     * Количество хитов/просмотров
+     * @var int
+     */
     private int $_views = 0;
 
+    /**
+     * Количество уникальных url
+     * @var string[]
+     */
     private array $_uniqueUrls = [];
 
+    /**
+     * Объем трафика
+     * @var int
+     */
     private int $_trafficVolume = 0;
 
+    /**
+     * Запросы от поисковиков
+     * @var array
+     */
     private array $_crawlers = [];
 
+    /**
+     * Коды ответов
+     * @var array
+     */
     private array $_statusCodes = [];
 
-    public function views()
+    /**
+     * Получение поля views
+     * @return int
+     */
+    public function views(): int
     {
         return $this->_views;
     }
 
-    public function increaseViews()
+    /**
+     * Икремент поля views
+     * @return $this
+     */
+    public function increaseViews(): AccessLogFullInfo
     {
         $this->_views++;
         return $this;
     }
 
-    public function trafficVolume()
+    /**
+     * Получение поля trafficVolume
+     * @return int
+     */
+    public function trafficVolume(): int
     {
         return $this->_trafficVolume;
     }
 
-    public function increaseTrafficVolume(int $value)
+    /**
+     * Икремент поля trafficVolume
+     * @param int $value - значение инкремента
+     * @return $this
+     */
+    public function increaseTrafficVolume(int $value): AccessLogFullInfo
     {
         $this->_trafficVolume += $value;
         return $this;
     }
 
-    public function uniqueUrls()
+    /**
+     * Получение поля uniqueUrls
+     * @return array
+     */
+    public function uniqueUrls(): array
     {
         return $this->_uniqueUrls;
     }
 
-    public function addUniqueUrl($url)
+    /**
+     * Добавление ссылки в uniqueUrls
+     * @param string $url - ссылка
+     * @return $this
+     */
+    public function addUniqueUrl(string $url): AccessLogFullInfo
     {
         $this->_uniqueUrls[] = $url;
         return $this;
     }
 
-    public function crawlers()
+    /**
+     * Получение поля crawlers
+     * @return array
+     */
+    public function crawlers(): array
     {
         return $this->_crawlers;
     }
 
-    public function addCrawler($crawler, $count = 0) {
-        $this->_crawlers[$crawler] = $count;
+    /**
+     * Добавление записи в crawlers
+     * @param string $crawler - название crawler
+     * @param int $count - значение
+     * @return $this
+     */
+    public function addCrawler(string $crawler, int $value = 0): AccessLogFullInfo
+    {
+        $this->_crawlers[$crawler] = $value;
+        return $this;
     }
 
-    public function increaseCrawlerCount($crawler)
+    /**
+     * Икремент значения в поле Crawler
+     * @param string $crawler - название crawler
+     * @return $this
+     */
+    public function increaseCrawler(string $crawler): AccessLogFullInfo
     {
         $this->_crawlers[$crawler]++;
+        return $this;
     }
 
-    public function statusCodes()
+    /**
+     * Получение statusCodes
+     * @return array
+     */
+    public function statusCodes(): array
     {
         return $this->_statusCodes;
 
     }
 
-    public function addStatusCode($statusCode, $count = 0)
+    /**
+     * Добавление записи в statusCodes
+     * @param string $statusCode - код статуса
+     * @param int $value - значение
+     * @return $this
+     */
+    public function addStatusCode(string $statusCode, int $value = 0): AccessLogFullInfo
     {
-        $this->_statusCodes[$statusCode] = $count;
+        $this->_statusCodes[$statusCode] = $value;
+        return $this;
     }
 
-    public function increaseStatusCodeCount($statusCode)
+    /**
+     * Икремент значения в поле statusCodes
+     * @param string $statusCode
+     * @return $this
+     */
+    public function increaseStatusCode(string $statusCode): AccessLogFullInfo
     {
         $this->_statusCodes[$statusCode]++;
+        return $this;
     }
 }
